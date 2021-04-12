@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('blog/posts/{post}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('blog/about', [BlogController::class, 'about'])->name('blog.about');
+Route::get('blog/category', [BlogController::class, 'category'])->name('blog.category');
+Route::get('blog/contact', [BlogController::class, 'contact'])->name('blog.contact');
+
 
 Route::middleware(['auth',])->group(function(){
     Route::view('home', 'home');

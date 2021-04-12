@@ -44,7 +44,7 @@
                     @endif
 
                 <div class="form-group">
-                    <label for="image">Image </label>
+                    <label for="image">Image* (image dimension need to be at least '1900:1200')</label>
                     <input type="file" class="form-control" name="image" id="image">
                 </div>
 
