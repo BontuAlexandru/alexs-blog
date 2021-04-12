@@ -48,6 +48,10 @@
             @endif
         </div>
     </div>
+
+    <div class="d-flex justify-content-center mb-5">
+        {{ $tags->links() }}
+    </div>
 @endsection
 
 

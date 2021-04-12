@@ -19,7 +19,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::with('category', 'user')->get();
+        $posts = Post::with('category', 'user')->simplePaginate(5);
 
         return view('posts.index', compact('posts'));
     }
@@ -107,7 +107,7 @@ class PostController extends Controller
 
     public function trashed()
     {
-        $trashed = Post::onlyTrashed()->get();
+        $trashed = Post::with('category', 'user')->onlyTrashed()->simplePaginate(5);
 
         return view('posts.index')->with('posts', $trashed);
     }

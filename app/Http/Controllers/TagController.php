@@ -12,7 +12,7 @@ class TagController extends Controller
 
     public function index()
     {
-        $tags = Tag::with('posts')->get();
+        $tags = Tag::with('posts')->simplePaginate(10);
 
         return view('tags.index', compact('tags'));
     }

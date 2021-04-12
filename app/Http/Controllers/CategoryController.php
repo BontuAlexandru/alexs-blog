@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
    public function index()
    {
-        $categories = Category::with('posts')->get();
+        $categories = Category::with('posts')->simplePaginate(10);
 
         return view('categories.index', compact('categories'));
    }
