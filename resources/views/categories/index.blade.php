@@ -48,4 +48,7 @@
         </div>
     </div>
 
+    <div class="d-flex justify-content-start mb-5">
+        {{ $categories->links() }}
+    </div>
 @endsection
